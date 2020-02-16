@@ -1,13 +1,47 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.form {
+  display: flex;
+  width: 50rem;
+  justify-content: center;
+}
+.form .game-mod {
+  width: 15rem;
+}
+
+.form .user-name {
+  width: 16rem;
+}
+
+.gameplay-container .flex {
+  display: flex;
+  justify-content: center;
+}
+
+.gameplay-container .flex .flex-child {
+  display: flex;
+  background-color: rgba(187, 187, 187, 0.123);
+  border: 1px solid grey;
+  width: 40px;
+  height: 40px;
+}
+
+.gameplay-container .flex .flex-child.selected {
+  background-color: blue;
+  cursor: pointer;
+}
+
+.gameplay-container .flex .flex-child.user {
+  background-color: green;
+}
+
+.gameplay-container .flex .flex-child.computer {
+  background-color: red;
 }

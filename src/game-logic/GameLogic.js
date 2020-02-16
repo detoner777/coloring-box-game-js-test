@@ -6,30 +6,30 @@ function delayByTimeout(delay) {
   });
 }
 
-function createFlexDivChild(rowCount, colCount) {
+function createDivChild(rowCount, colCount) {
   const div = document.createElement("div");
   div.className = `flex-child child-${rowCount}-${colCount}`;
 
   return div;
 }
 
-function createFlexRow(rowCount, sizePlayingField) {
+function createRow(rowCount, sizePlayingField) {
   const div = document.createElement("div");
   div.className = `flex flex-${rowCount}`;
 
   for (let colCount = 0; colCount < sizePlayingField; colCount++) {
-    div.appendChild(createFlexDivChild(rowCount, colCount));
+    div.appendChild(createDivChild(rowCount, colCount));
   }
 
   return div;
 }
 
 export function createPlayingField(sizePlayingField) {
-  const playingFieldContainer = document.body.querySelector(".game-container");
+  const playingFieldContainer = document.body.querySelector(
+    ".gameplay-container"
+  );
   for (let rowCount = 0; rowCount < sizePlayingField; rowCount++) {
-    playingFieldContainer.appendChild(
-      createFlexRow(rowCount, sizePlayingField)
-    );
+    playingFieldContainer.appendChild(createRow(rowCount, sizePlayingField));
   }
 }
 
@@ -50,6 +50,26 @@ export function selectRandomChildField(num) {
   }
 }
 
+export function score() {
+  const userDivCount = document.body.querySelectorAll(".user").length;
+  const computerDivCount = document.body.querySelectorAll(".computer").length;
+  return { user: userDivCount, computer: computerDivCount };
+}
+
+export function clearPlayingField() {
+  const playingFieldContainer = document.body.querySelector(
+    ".gameplay-container"
+  );
+  playingFieldContainer.innerHTML = "";
+}
+
+export function endGame(field) {
+  const { user, computer } = score();
+  return (
+    user - Math.round(Math.pow(field, 2) / 2) >= 0 ||
+    computer - Math.round(Math.pow(field, 2) / 2) >= 0
+  );
+}
 export async function managedToClickSelectedChildField(delay) {
   const selectedDiv = document.body.querySelector(".selected");
 
@@ -64,25 +84,6 @@ export async function managedToClickSelectedChildField(delay) {
     selectedDiv.classList.remove("selected");
     selectedDiv.classList.add("computer");
   }
-}
-
-export function score() {
-  const userDivCount = document.body.querySelectorAll(".user").length;
-  const computerDivCount = document.body.querySelectorAll(".computer").length;
-  return { user: userDivCount, computer: computerDivCount };
-}
-
-export function clearPlayingField() {
-  const playingFieldContainer = document.body.querySelector(".game-container");
-  playingFieldContainer.innerHTML = "";
-}
-
-function endGame(field) {
-  const { user, computer } = score();
-  return (
-    user - Math.round(Math.pow(field, 2) / 2) >= 0 ||
-    computer - Math.round(Math.pow(field, 2) / 2) >= 0
-  );
 }
 function determinateOfWinner() {
   const { user, computer } = score();
@@ -101,6 +102,7 @@ async function logicGame(field, delay) {
 }
 
 export async function play({ field, delay }) {
+  clearPlayingField();
   createPlayingField(field);
   return logicGame(field, delay);
 }
