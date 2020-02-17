@@ -1,5 +1,4 @@
 const FETCHED_WINNERS = "fetched_winners";
-const REQUEST_SENT = "request_send";
 const WINNERS_POSTED = "winners_posted";
 
 const initState = {
@@ -9,13 +8,6 @@ const initState = {
 
 export default function(state = initState, action) {
   switch (action.type) {
-    case REQUEST_SENT:
-      return {
-        ...state,
-        ...{
-          loaded: false
-        }
-      };
     case FETCHED_WINNERS:
       return {
         ...state,

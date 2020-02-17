@@ -6,19 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.form {
-  display: flex;
-  width: 50rem;
-  justify-content: center;
-}
-.form .game-mod {
-  width: 15rem;
-}
-
-.form .user-name {
-  width: 16rem;
-}
+/* ----------Gameplay------------ */
 
 .gameplay-container .flex {
   display: flex;
@@ -45,3 +33,19 @@ body {
 .gameplay-container .flex .flex-child.computer {
   background-color: red;
 }
+
+/* -------------Menu------------ */
+.form {
+  display: flex;
+  width: 50rem;
+  justify-content: center;
+}
+.form .game-mod {
+  width: 15rem;
+}
+
+.form .user-name {
+  width: 16rem;
+}
+
+/* ------------LeaderBoard------------- */

@@ -3,6 +3,7 @@ const FETCHED_WINNERS = "fetched_winners";
 const REQUEST_SENT = "request_send";
 const WINNERS_POSTED = "winners_posted";
 
+
 export function postWinner(payload) {
   return function(dispatch) {
     dispatch({
