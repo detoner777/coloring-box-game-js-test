@@ -52,7 +52,7 @@ export default () => {
   return (
     <div>
       {!fetchGameSettings ? (
-        <Spinner animation="border" />
+        <Spinner animation="border" className="menu-spinner" />
       ) : (
         <Menu
           fetchGameSettings={fetchGameSettings}

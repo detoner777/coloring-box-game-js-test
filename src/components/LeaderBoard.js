@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as winnersList from "../store/actions/actions";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -24,18 +24,18 @@ export default function LeaderBoard() {
   }, [dispatch]);
 
   return (
-    <div className="container-sm">
-      <p>Leader board</p>
+    <div className="leaders-board">
+      <p style={{ fontSize: "25px" }}>Leader board</p>
       <ListGroup as="ul">
         {!loaded
           ? spinners()
           : winners
               .reverse()
-              .filter((item, key) => key < 10)
+              .filter((item, key) => key < 6)
               .map(item => (
                 <div key={item.id}>
                   <ListGroup.Item>
-                    {item.winner} {item.date}
+                    winner: {item.winner} <br /> date: {item.date}
                   </ListGroup.Item>
                 </div>
               ))}

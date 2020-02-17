@@ -4,7 +4,7 @@ import LeaderBoard from "./components/LeaderBoard";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <GamePlay />
       <LeaderBoard />
     </div>

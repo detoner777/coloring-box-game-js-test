@@ -25,7 +25,6 @@ export default props => {
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Row>
             <Col>
-              {/* <Form.Label></Form.Label> */}
               <Form.Control
                 className="game-mod"
                 as="select"
